@@ -76,7 +76,17 @@ export async function deployLedger(client, log = console.log) {
   log("deploying contracts/foresight_ledger.py to Studionet ...");
   const hash = await client.deployContract({ code, args: [], leaderOnly: false });
   log(`deploy tx ${hash}`);
-  const receipt = await client.waitForTransactionReceipt({ hash, status: TransactionStatus.FINALIZED, interval: 3000, retries: 200 });
+  let receipt;
+  for (let i = 0; ; i++) {
+    try {
+      receipt = await client.waitForTransactionReceipt({ hash, status: TransactionStatus.FINALIZED, interval: 3000, retries: 200 });
+      break;
+    } catch (err) {
+      // a 502/503 HTML page from the public RPC says nothing about the deployment: poll again
+      if (i >= 6 || !/\b50[234]\b|<!DOCTYPE|Unexpected token '<'|fetch failed|ECONNRESET/i.test(String(err?.message ?? err))) throw err;
+      await sleep(4000 * (i + 1));
+    }
+  }
   if (receiptFailed(receipt)) throw new Error("deployment failed: " + (taggedMessage(receipt) ?? "see explorer"));
   const address = findAddress(receipt?.data) ?? findAddress(receipt?.txDataDecoded) ?? findAddress(receipt);
   if (!address) throw new Error(`deployed (tx ${hash}) but the address could not be read from the receipt; copy it from ${EXPLORER}/tx/${hash}`);

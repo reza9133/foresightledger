@@ -131,10 +131,26 @@ const read = async (fn, a = []) => {
   }
 };
 
+/**
+ * Waits for a receipt. The public RPC sometimes answers a poll with an HTML error page (502/503);
+ * that says nothing about the transaction, so only the polling is retried. The transaction itself
+ * is never re-sent, which could create a duplicate.
+ */
+async function waitReceipt(client, hash, status, retries = 240) {
+  for (let i = 0; ; i++) {
+    try {
+      return await client.waitForTransactionReceipt({ hash, status, interval: 5000, retries });
+    } catch (err) {
+      if (i >= 6 || !TRANSIENT.test(errorText(err))) throw err;
+      await sleep(4000 * (i + 1));
+    }
+  }
+}
+
 async function sendTx(client, fn, a, label, { status = TransactionStatus.ACCEPTED } = {}) {
   const hash = await client.writeContract({ address, functionName: fn, args: a, value: 0n });
   const t0 = Date.now();
-  const receipt = await client.waitForTransactionReceipt({ hash, status, interval: 5000, retries: 240 });
+  const receipt = await waitReceipt(client, hash, status);
   const rec = { label, fn, hash, explorer: `${EXPLORER}/tx/${hash}`, seconds: Math.round((Date.now() - t0) / 1000), failed: receiptFailed(receipt), expectedFailure: false, finalized: false };
   txs.push(rec);
   return { receipt, rec };
@@ -550,7 +566,7 @@ async function main() {
         const left = deadline - Date.now();
         if (left <= 0) return;
         try {
-          await clients.alice.waitForTransactionReceipt({ hash: t.hash, status: TransactionStatus.FINALIZED, interval: 5000, retries: Math.max(1, Math.floor(left / 5000)) });
+          await waitReceipt(clients.alice, t.hash, TransactionStatus.FINALIZED, Math.max(1, Math.floor(left / 5000)));
           t.finalized = true;
         } catch { /* stays not finalized */ }
       }
