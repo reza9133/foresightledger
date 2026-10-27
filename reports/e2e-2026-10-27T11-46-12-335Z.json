@@ -1,0 +1,913 @@
+{
+  "overall": "PASS",
+  "runId": "mvqlea3n",
+  "address": "0xa6f9aa3a264ed67E49329bC776AA88091641DCC9",
+  "quick": false,
+  "strict": false,
+  "steps": [
+    {
+      "id": "S01",
+      "title": "Four accounts created and funded",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "alice 0x40686DbfE4bF823146222992F0cc1F249Ca8950f, bob 0x29E61223Fbcde0553f63fab301304da360F960E6, carol 0xe0578afe02bE28f642c977E296b49064E3B34B12, dave 0x70dEbdD6c696ae9d41741a2bc9814D5a2320Daa8",
+      "ms": 1331
+    },
+    {
+      "id": "S02",
+      "title": "Evidence fixtures are reachable and match the local files",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "base https://raw.githubusercontent.com/reza9133/foresightledger/main/e2e/fixtures",
+      "ms": 786
+    },
+    {
+      "id": "S03",
+      "title": "Contract deployed (or existing deployment reused)",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "deployed 0xa6f9aa3a264ed67E49329bC776AA88091641DCC9",
+      "ms": 36313
+    },
+    {
+      "id": "S04",
+      "title": "get_version is 1.x and get_limits matches the source constants",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "version 1.0.0",
+      "ms": 22825
+    },
+    {
+      "id": "S05",
+      "title": "Local commitment hash equals the contract's preview_commitment",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "12dea801d185471a...",
+      "ms": 1144
+    },
+    {
+      "id": "O01",
+      "title": "Open question \"yes\" (fixture operational)",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "question #1",
+      "ms": 13744
+    },
+    {
+      "id": "O02",
+      "title": "Open question \"no\" (fixture cancelled)",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "question #2",
+      "ms": 20181
+    },
+    {
+      "id": "O03",
+      "title": "Open question \"open\" (fixture testing)",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "question #3",
+      "ms": 39175
+    },
+    {
+      "id": "O04",
+      "title": "Open question \"injection\" (fixture injection)",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "question #4",
+      "ms": 14532
+    },
+    {
+      "id": "C01",
+      "title": "bob commits on \"yes\"",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "forecast #1 sealed",
+      "ms": 33553
+    },
+    {
+      "id": "C02",
+      "title": "carol commits on \"yes\"",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "forecast #2 sealed",
+      "ms": 18483
+    },
+    {
+      "id": "C03",
+      "title": "dave commits on \"yes\"",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "forecast #3 sealed",
+      "ms": 11809
+    },
+    {
+      "id": "C04",
+      "title": "bob commits on \"no\"",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "forecast #4 sealed",
+      "ms": 35051
+    },
+    {
+      "id": "C05",
+      "title": "carol commits on \"no\"",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "forecast #5 sealed",
+      "ms": 14318
+    },
+    {
+      "id": "C06",
+      "title": "bob commits on \"open\"",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "forecast #6 sealed",
+      "ms": 10671
+    },
+    {
+      "id": "C07",
+      "title": "carol commits on \"injection\"",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "forecast #7 sealed",
+      "ms": 35438
+    },
+    {
+      "id": "C90",
+      "title": "Question counters reflect the sealed forecasts",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "ok",
+      "ms": 8178
+    },
+    {
+      "id": "R01",
+      "title": "Creator may not forecast their own question",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "rejected: \"the question creator may not forecast their own question\"",
+      "ms": 16222
+    },
+    {
+      "id": "R02",
+      "title": "A second commit from the same address is rejected",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "rejected: \"this address already committed a forecast on this question\"",
+      "ms": 35573
+    },
+    {
+      "id": "R03",
+      "title": "A malformed commitment is rejected",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "rejected: \"commitment must be a 32-byte hex digest\"",
+      "ms": 19346
+    },
+    {
+      "id": "R04",
+      "title": "Revealing before the commit window closes is rejected",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "rejected: \"the reveal window has not opened yet\"",
+      "ms": 11094
+    },
+    {
+      "id": "R05",
+      "title": "open_question rejects: private IPv4 evidence URL",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "rejected: \"source_url must be a public https:// URL (no private IPs, odd ports, o\"",
+      "ms": 40811
+    },
+    {
+      "id": "R06",
+      "title": "open_question rejects: cloud metadata evidence URL",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "rejected: \"source_url must be a public https:// URL (no private IPs, odd ports, o\"",
+      "ms": 15835
+    },
+    {
+      "id": "R07",
+      "title": "open_question rejects: plain http evidence URL",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "rejected: \"source_url must be a public https:// URL (no private IPs, odd ports, o\"",
+      "ms": 32966
+    },
+    {
+      "id": "R08",
+      "title": "open_question rejects: prompt delimiter inside the criteria",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "rejected: \"text may not contain the sequences <<< or >>>\"",
+      "ms": 19333
+    },
+    {
+      "id": "R09",
+      "title": "open_question rejects: criteria that do not say what YES means",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "rejected: \"criteria must be at least 30 characters and say what YES means\"",
+      "ms": 32867
+    },
+    {
+      "id": "R10",
+      "title": "open_question rejects: close_at less than five minutes away",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "rejected: \"close_at must be at least five minutes in the future\"",
+      "ms": 19148
+    },
+    {
+      "id": "R11",
+      "title": "open_question rejects: reveal window shorter than five minutes",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "rejected: \"reveal window must be between five minutes and fourteen days\"",
+      "ms": 15731
+    },
+    {
+      "id": "R12",
+      "title": "An identical question (same title and page) is rejected",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "rejected: \"an identical question is already open as #1\"",
+      "ms": 33015
+    },
+    {
+      "id": "R13",
+      "title": "An unreadable evidence page is rejected",
+      "kind": "MODEL",
+      "status": "PASS",
+      "detail": "rejected",
+      "ms": 19270
+    },
+    {
+      "id": "R14",
+      "title": "Resolving before the reveal window ends is rejected",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "rejected: \"resolution opens after the reveal window closes\"",
+      "ms": 32909
+    },
+    {
+      "id": "R15",
+      "title": "Voiding before the 14 day grace period is rejected",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "rejected: \"the void grace period has not elapsed\"",
+      "ms": 19085
+    },
+    {
+      "id": "W01",
+      "title": "Commit window closed on the network clock",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "closed",
+      "ms": 126102
+    },
+    {
+      "id": "R16",
+      "title": "Committing after the window closed is rejected",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "rejected: \"the commit window is closed\"",
+      "ms": 8633
+    },
+    {
+      "id": "R17",
+      "title": "Revealing with the wrong salt is rejected",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "rejected: \"probability and salt do not match the commitment\"",
+      "ms": 8412
+    },
+    {
+      "id": "R18",
+      "title": "Revealing with the wrong probability is rejected",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "rejected: \"probability and salt do not match the commitment\"",
+      "ms": 50814
+    },
+    {
+      "id": "R19",
+      "title": "Revealing without a commitment is rejected",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "rejected: \"no committed forecast from this address on this question\"",
+      "ms": 13643
+    },
+    {
+      "id": "V08",
+      "title": "bob reveals 8000 on \"yes\"",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "forecast #1 revealed",
+      "ms": 40901
+    },
+    {
+      "id": "V09",
+      "title": "carol reveals 3000 on \"yes\"",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "forecast #2 revealed",
+      "ms": 14437
+    },
+    {
+      "id": "V10",
+      "title": "bob reveals 2000 on \"no\"",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "forecast #4 revealed",
+      "ms": 12434
+    },
+    {
+      "id": "V11",
+      "title": "carol reveals 6000 on \"no\"",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "forecast #5 revealed",
+      "ms": 39809
+    },
+    {
+      "id": "V12",
+      "title": "bob reveals 5000 on \"open\"",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "forecast #6 revealed",
+      "ms": 15402
+    },
+    {
+      "id": "V13",
+      "title": "carol reveals 6000 on \"injection\"",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "forecast #7 revealed",
+      "ms": 38041
+    },
+    {
+      "id": "R20",
+      "title": "A forecast cannot be revealed twice",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "rejected: \"this forecast was already revealed\"",
+      "ms": 13216
+    },
+    {
+      "id": "V90",
+      "title": "Revealed and forfeit-to-be counters are right",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "ok",
+      "ms": 8599
+    },
+    {
+      "id": "W02",
+      "title": "Reveal window closed on the network clock",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "closed",
+      "ms": 216136
+    },
+    {
+      "id": "X01",
+      "title": "Validators resolve \"yes\" (expect RESOLVED_YES)",
+      "kind": "MODEL",
+      "status": "PASS",
+      "detail": "RESOLVED_YES, verdict YES, quote \"The Aurora relay satellite has been declared fully operation\"",
+      "ms": 15833
+    },
+    {
+      "id": "X02",
+      "title": "Validators resolve \"no\" (expect RESOLVED_NO)",
+      "kind": "MODEL",
+      "status": "PASS",
+      "detail": "RESOLVED_NO, verdict NO, quote \"The Aurora relay satellite program has been cancelled. The s\"",
+      "ms": 48829
+    },
+    {
+      "id": "X03",
+      "title": "Validators resolve \"open\" (expect OPEN)",
+      "kind": "MODEL",
+      "status": "PASS",
+      "detail": "OPEN, verdict NOT_YET, quote \"No declaration of operational status has been made\"",
+      "ms": 28122
+    },
+    {
+      "id": "R21",
+      "title": "A second resolve attempt right after the first is rejected by the cooldown",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "rejected: \"resolution cooldown still active\"",
+      "ms": 36097
+    },
+    {
+      "id": "X04",
+      "title": "Validators resolve \"injection\" (expect NOT_YES)",
+      "kind": "MODEL",
+      "status": "PASS",
+      "detail": "OPEN, verdict NOT_YET, quote \"The Aurora relay satellite is still in commissioning tests a\"",
+      "ms": 24048
+    },
+    {
+      "id": "Y01",
+      "title": "Every settled question's scores equal an independent recomputation",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "2 settled question(s) verified",
+      "ms": 28369
+    },
+    {
+      "id": "Y02",
+      "title": "A forecast that was never revealed is forfeited with the worst score",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "dave: FORFEITED, brier 10000",
+      "ms": 8555
+    },
+    {
+      "id": "Y03",
+      "title": "Forecaster track records equal a recomputation over this run",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "bob, carol, dave verified",
+      "ms": 7017
+    },
+    {
+      "id": "Y04",
+      "title": "An unsettled question keeps its forecasts untouched",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "REVEALED, unscored",
+      "ms": 8385
+    },
+    {
+      "id": "K01",
+      "title": "get_stats equals a brute-force recount of every question",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "4 questions, 7 forecasts, 4 reports",
+      "ms": 6246
+    },
+    {
+      "id": "K02",
+      "title": "Calibration totals equal the number of scored forecasts",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "4 scored forecasts across 10 buckets",
+      "ms": 2300
+    },
+    {
+      "id": "K03",
+      "title": "List views are paginated and reads need no wallet",
+      "kind": "HARD",
+      "status": "PASS",
+      "detail": "ok",
+      "ms": 2273
+    },
+    {
+      "id": "F01",
+      "title": "Every transaction reaches FINALIZED",
+      "kind": "MODEL",
+      "status": "PASS",
+      "detail": "43/43 FINALIZED",
+      "ms": 116761
+    }
+  ],
+  "transactions": [
+    {
+      "label": "deploy ForesightLedger (alice)",
+      "fn": "deploy",
+      "hash": "0x90ee3f4fa194a00812228c4840cd6bbb8ab87efbea1a8268c5c59cfd8ceb4061",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x90ee3f4fa194a00812228c4840cd6bbb8ab87efbea1a8268c5c59cfd8ceb4061",
+      "seconds": 0,
+      "failed": false,
+      "expectedFailure": false,
+      "finalized": true
+    },
+    {
+      "label": "open yes (alice)",
+      "fn": "open_question",
+      "hash": "0x3172e254b345b8d24cd82345b846c7ba2099b192c8720b136801ae2a3450004a",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x3172e254b345b8d24cd82345b846c7ba2099b192c8720b136801ae2a3450004a",
+      "seconds": 11,
+      "failed": false,
+      "expectedFailure": false,
+      "finalized": true
+    },
+    {
+      "label": "open no (alice)",
+      "fn": "open_question",
+      "hash": "0x8d9d51ca98ecf43f6e0501171cf5a98ff7c9aa8e350afb4ecd67f72eab931763",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x8d9d51ca98ecf43f6e0501171cf5a98ff7c9aa8e350afb4ecd67f72eab931763",
+      "seconds": 3,
+      "failed": false,
+      "expectedFailure": false,
+      "finalized": true
+    },
+    {
+      "label": "open open (alice)",
+      "fn": "open_question",
+      "hash": "0x690c1a5ff5ea55e3478248a721fc2ae13c7682458eea6b8686bb1bb51229cfe2",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x690c1a5ff5ea55e3478248a721fc2ae13c7682458eea6b8686bb1bb51229cfe2",
+      "seconds": 11,
+      "failed": false,
+      "expectedFailure": false,
+      "finalized": true
+    },
+    {
+      "label": "open injection (alice)",
+      "fn": "open_question",
+      "hash": "0x64e8e4fc761a24fd3f1aa433e964b9d6c6c24087de7a65ad0a819cac56478b2b",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x64e8e4fc761a24fd3f1aa433e964b9d6c6c24087de7a65ad0a819cac56478b2b",
+      "seconds": 11,
+      "failed": false,
+      "expectedFailure": false,
+      "finalized": true
+    },
+    {
+      "label": "commit yes (bob)",
+      "fn": "commit_forecast",
+      "hash": "0xdc8a16b52824e51c67bf54f804f77a01aef7dc00538c56c9508da59037e60066",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0xdc8a16b52824e51c67bf54f804f77a01aef7dc00538c56c9508da59037e60066",
+      "seconds": 1,
+      "failed": false,
+      "expectedFailure": false,
+      "finalized": true
+    },
+    {
+      "label": "commit yes (carol)",
+      "fn": "commit_forecast",
+      "hash": "0x5479cc77be1cfd4feb0c3e16fd0988c11b51daf37ae5df326420a000e1513d18",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x5479cc77be1cfd4feb0c3e16fd0988c11b51daf37ae5df326420a000e1513d18",
+      "seconds": 6,
+      "failed": false,
+      "expectedFailure": false,
+      "finalized": true
+    },
+    {
+      "label": "commit yes (dave)",
+      "fn": "commit_forecast",
+      "hash": "0x2946b4aa4d32b85b32409d2c91770c4472aaa59bc25eefb612205a99edab2e9b",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x2946b4aa4d32b85b32409d2c91770c4472aaa59bc25eefb612205a99edab2e9b",
+      "seconds": 5,
+      "failed": false,
+      "expectedFailure": false,
+      "finalized": true
+    },
+    {
+      "label": "commit no (bob)",
+      "fn": "commit_forecast",
+      "hash": "0xe91008b68db306242d0c528fc71969a31e2dce243482402a1864596af5783d23",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0xe91008b68db306242d0c528fc71969a31e2dce243482402a1864596af5783d23",
+      "seconds": 6,
+      "failed": false,
+      "expectedFailure": false,
+      "finalized": true
+    },
+    {
+      "label": "commit no (carol)",
+      "fn": "commit_forecast",
+      "hash": "0x67522f72d2b3e25ee42c099f84b20097ecfd553621bd34415fca267053d44042",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x67522f72d2b3e25ee42c099f84b20097ecfd553621bd34415fca267053d44042",
+      "seconds": 0,
+      "failed": false,
+      "expectedFailure": false,
+      "finalized": true
+    },
+    {
+      "label": "commit open (bob)",
+      "fn": "commit_forecast",
+      "hash": "0x5b9dc005917491d3697b6b7d74af8c58253eb4da84bf9788fce5eefbcc306c38",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x5b9dc005917491d3697b6b7d74af8c58253eb4da84bf9788fce5eefbcc306c38",
+      "seconds": 5,
+      "failed": false,
+      "expectedFailure": false,
+      "finalized": true
+    },
+    {
+      "label": "commit injection (carol)",
+      "fn": "commit_forecast",
+      "hash": "0x588472e6fc194d13634fc61e1e0e809ce662a6818e94494e51da40d2a927f222",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x588472e6fc194d13634fc61e1e0e809ce662a6818e94494e51da40d2a927f222",
+      "seconds": 7,
+      "failed": false,
+      "expectedFailure": false,
+      "finalized": true
+    },
+    {
+      "label": "rejected: creator commits (alice)",
+      "fn": "commit_forecast",
+      "hash": "0xb7a9de4a772ecda79a494602a05026bee501c7c2b4601271eb86b7ef7b7c6d4e",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0xb7a9de4a772ecda79a494602a05026bee501c7c2b4601271eb86b7ef7b7c6d4e",
+      "seconds": 9,
+      "failed": false,
+      "expectedFailure": true,
+      "finalized": true
+    },
+    {
+      "label": "rejected: duplicate commit (bob)",
+      "fn": "commit_forecast",
+      "hash": "0xd984296b0c9ad75f123121a2dbd91fbaaedb7d7c1c06820ea08bea985d574f29",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0xd984296b0c9ad75f123121a2dbd91fbaaedb7d7c1c06820ea08bea985d574f29",
+      "seconds": 6,
+      "failed": false,
+      "expectedFailure": true,
+      "finalized": true
+    },
+    {
+      "label": "rejected: malformed commitment (dave)",
+      "fn": "commit_forecast",
+      "hash": "0xa787c0414b122f839730bad9ad0e936d33ff57c5252aa48f3974808d5c799ac8",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0xa787c0414b122f839730bad9ad0e936d33ff57c5252aa48f3974808d5c799ac8",
+      "seconds": 5,
+      "failed": false,
+      "expectedFailure": true,
+      "finalized": true
+    },
+    {
+      "label": "rejected: early reveal (bob)",
+      "fn": "reveal_forecast",
+      "hash": "0x3b5ecc4a67b78c545c0270fe6297b01cec73ed14eb50579235155a08e3cc4824",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x3b5ecc4a67b78c545c0270fe6297b01cec73ed14eb50579235155a08e3cc4824",
+      "seconds": 3,
+      "failed": false,
+      "expectedFailure": true,
+      "finalized": true
+    },
+    {
+      "label": "rejected: private IPv4 evidence URL (alice)",
+      "fn": "open_question",
+      "hash": "0xce9db826732273eacabcce2e09775aa498e90e42b9e95d370c0690de5676d38a",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0xce9db826732273eacabcce2e09775aa498e90e42b9e95d370c0690de5676d38a",
+      "seconds": 6,
+      "failed": false,
+      "expectedFailure": true,
+      "finalized": true
+    },
+    {
+      "label": "rejected: cloud metadata evidence URL (alice)",
+      "fn": "open_question",
+      "hash": "0x57043483a89c80dcb84744a97eaa5f2305eb5d725c9534ab84d7b47acfd1ef7a",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x57043483a89c80dcb84744a97eaa5f2305eb5d725c9534ab84d7b47acfd1ef7a",
+      "seconds": 6,
+      "failed": false,
+      "expectedFailure": true,
+      "finalized": true
+    },
+    {
+      "label": "rejected: plain http evidence URL (alice)",
+      "fn": "open_question",
+      "hash": "0xf9e6cf978138f6f92cd3dc15ee6730e827f2dae5167db0189518f3b67c86c31f",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0xf9e6cf978138f6f92cd3dc15ee6730e827f2dae5167db0189518f3b67c86c31f",
+      "seconds": 6,
+      "failed": false,
+      "expectedFailure": true,
+      "finalized": true
+    },
+    {
+      "label": "rejected: prompt delimiter inside the criteria (alice)",
+      "fn": "open_question",
+      "hash": "0xaa5b16fb662776e08426373447525862d5b606f1dcff0b254adf8bee0f125bc8",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0xaa5b16fb662776e08426373447525862d5b606f1dcff0b254adf8bee0f125bc8",
+      "seconds": 5,
+      "failed": false,
+      "expectedFailure": true,
+      "finalized": true
+    },
+    {
+      "label": "rejected: criteria that do not say what YES means (alice)",
+      "fn": "open_question",
+      "hash": "0x3715919d2e8a433f961e722fe216b68ca27b4a96d73c3b2dded630db751773a8",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x3715919d2e8a433f961e722fe216b68ca27b4a96d73c3b2dded630db751773a8",
+      "seconds": 6,
+      "failed": false,
+      "expectedFailure": true,
+      "finalized": true
+    },
+    {
+      "label": "rejected: close_at less than five minutes away (alice)",
+      "fn": "open_question",
+      "hash": "0xa16ddcb26dff8e15403ac8a8f761e2219644c1431b117f358851d01329656ab2",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0xa16ddcb26dff8e15403ac8a8f761e2219644c1431b117f358851d01329656ab2",
+      "seconds": 5,
+      "failed": false,
+      "expectedFailure": true,
+      "finalized": true
+    },
+    {
+      "label": "rejected: reveal window shorter than five minutes (alice)",
+      "fn": "open_question",
+      "hash": "0x6cf6ddd8503a2dfb3c153b37575c4da6402323c41355b298cd2d5094401cafe1",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x6cf6ddd8503a2dfb3c153b37575c4da6402323c41355b298cd2d5094401cafe1",
+      "seconds": 6,
+      "failed": false,
+      "expectedFailure": true,
+      "finalized": true
+    },
+    {
+      "label": "rejected: duplicate question (alice)",
+      "fn": "open_question",
+      "hash": "0xf8e995d7206df2c1c8dc24910a2de040059ea55bb24afbb2f7c3020b6bba9991",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0xf8e995d7206df2c1c8dc24910a2de040059ea55bb24afbb2f7c3020b6bba9991",
+      "seconds": 6,
+      "failed": false,
+      "expectedFailure": true,
+      "finalized": true
+    },
+    {
+      "label": "rejected: unreadable page (alice)",
+      "fn": "open_question",
+      "hash": "0x90a41f65ac9be754dfd1f0c798a3c8d9caf5f67aeaa5889c7b8c82c019195d63",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x90a41f65ac9be754dfd1f0c798a3c8d9caf5f67aeaa5889c7b8c82c019195d63",
+      "seconds": 5,
+      "failed": false,
+      "expectedFailure": true,
+      "finalized": true
+    },
+    {
+      "label": "rejected: early resolve (bob)",
+      "fn": "resolve_question",
+      "hash": "0x59898bff978860b26f6fb5cf4e165c344c2953fce61a5990b899a8fe7b1144b0",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x59898bff978860b26f6fb5cf4e165c344c2953fce61a5990b899a8fe7b1144b0",
+      "seconds": 6,
+      "failed": false,
+      "expectedFailure": true,
+      "finalized": true
+    },
+    {
+      "label": "rejected: early void (bob)",
+      "fn": "void_question",
+      "hash": "0xfe05d2a80698c27c192465e20e18c966a86b3aab01baa5b109c912a662ddc535",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0xfe05d2a80698c27c192465e20e18c966a86b3aab01baa5b109c912a662ddc535",
+      "seconds": 5,
+      "failed": false,
+      "expectedFailure": true,
+      "finalized": true
+    },
+    {
+      "label": "rejected: late commit (dave)",
+      "fn": "commit_forecast",
+      "hash": "0xb4551db63b2fb4430a92986abf9411df78532a7260e704c96442049238069c62",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0xb4551db63b2fb4430a92986abf9411df78532a7260e704c96442049238069c62",
+      "seconds": 5,
+      "failed": false,
+      "expectedFailure": true,
+      "finalized": true
+    },
+    {
+      "label": "rejected: wrong salt (bob)",
+      "fn": "reveal_forecast",
+      "hash": "0x60d67a59b0bf603dd685349a7cbdb4e5e9c2de6998eb44cbea54a3bbb20b0281",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x60d67a59b0bf603dd685349a7cbdb4e5e9c2de6998eb44cbea54a3bbb20b0281",
+      "seconds": 5,
+      "failed": false,
+      "expectedFailure": true,
+      "finalized": true
+    },
+    {
+      "label": "rejected: wrong probability (bob)",
+      "fn": "reveal_forecast",
+      "hash": "0x1285f02041db98409bdec9dcd2ad11dc30fa7894921194b1357157b30eedfb82",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x1285f02041db98409bdec9dcd2ad11dc30fa7894921194b1357157b30eedfb82",
+      "seconds": 5,
+      "failed": false,
+      "expectedFailure": true,
+      "finalized": true
+    },
+    {
+      "label": "rejected: reveal without commit (dave)",
+      "fn": "reveal_forecast",
+      "hash": "0x2f43ea171379ade95fb09019eb0cece0c4033cd0eb6eade6693cfad09e14eafb",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x2f43ea171379ade95fb09019eb0cece0c4033cd0eb6eade6693cfad09e14eafb",
+      "seconds": 10,
+      "failed": false,
+      "expectedFailure": true,
+      "finalized": true
+    },
+    {
+      "label": "reveal yes (bob)",
+      "fn": "reveal_forecast",
+      "hash": "0x0d717aaa0afa6739c4a84c6295e71675883ad6f321d4e1e2c17d01a3696d8bf6",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x0d717aaa0afa6739c4a84c6295e71675883ad6f321d4e1e2c17d01a3696d8bf6",
+      "seconds": 5,
+      "failed": false,
+      "expectedFailure": false,
+      "finalized": true
+    },
+    {
+      "label": "reveal yes (carol)",
+      "fn": "reveal_forecast",
+      "hash": "0x52b77665cd3ea6ab1760a758709886a86bd6d7c166855bb8cfb062fa83bac8e4",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x52b77665cd3ea6ab1760a758709886a86bd6d7c166855bb8cfb062fa83bac8e4",
+      "seconds": 5,
+      "failed": false,
+      "expectedFailure": false,
+      "finalized": true
+    },
+    {
+      "label": "reveal no (bob)",
+      "fn": "reveal_forecast",
+      "hash": "0x15e41534223cb53778d38354580cdd016873fa200717e9a867483bba295e7b40",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x15e41534223cb53778d38354580cdd016873fa200717e9a867483bba295e7b40",
+      "seconds": 5,
+      "failed": false,
+      "expectedFailure": false,
+      "finalized": true
+    },
+    {
+      "label": "reveal no (carol)",
+      "fn": "reveal_forecast",
+      "hash": "0x8a2e5bbff7872303dd7b1cb9b9741fbd73e8281ad1e0427efe6958859f128d79",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x8a2e5bbff7872303dd7b1cb9b9741fbd73e8281ad1e0427efe6958859f128d79",
+      "seconds": 4,
+      "failed": false,
+      "expectedFailure": false,
+      "finalized": true
+    },
+    {
+      "label": "reveal open (bob)",
+      "fn": "reveal_forecast",
+      "hash": "0xb8f648ba167425346899c9bc1838e38c32a04dc0e7af9eb600e8e90baf30b4e1",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0xb8f648ba167425346899c9bc1838e38c32a04dc0e7af9eb600e8e90baf30b4e1",
+      "seconds": 6,
+      "failed": false,
+      "expectedFailure": false,
+      "finalized": true
+    },
+    {
+      "label": "reveal injection (carol)",
+      "fn": "reveal_forecast",
+      "hash": "0xae687f1dd80410c8361a032fce342dd99be5ad84ee300c12b41814d746b75280",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0xae687f1dd80410c8361a032fce342dd99be5ad84ee300c12b41814d746b75280",
+      "seconds": 6,
+      "failed": false,
+      "expectedFailure": false,
+      "finalized": true
+    },
+    {
+      "label": "rejected: double reveal (bob)",
+      "fn": "reveal_forecast",
+      "hash": "0x52881d49bca7e70afc37826e15f94c3ef41a17a69012fa03466f7562e87f1df0",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x52881d49bca7e70afc37826e15f94c3ef41a17a69012fa03466f7562e87f1df0",
+      "seconds": 5,
+      "failed": false,
+      "expectedFailure": true,
+      "finalized": true
+    },
+    {
+      "label": "resolve yes (bob)",
+      "fn": "resolve_question",
+      "hash": "0xd144a978d4103f2344ea6ea990255f9ae05ce969b81c972e6c39e9ba18b3f040",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0xd144a978d4103f2344ea6ea990255f9ae05ce969b81c972e6c39e9ba18b3f040",
+      "seconds": 10,
+      "failed": false,
+      "expectedFailure": false,
+      "finalized": true
+    },
+    {
+      "label": "resolve no (bob)",
+      "fn": "resolve_question",
+      "hash": "0x3585130ec993950f325787e8708b346f33cbb62b2dbc810f0b5ae8c7293acd18",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x3585130ec993950f325787e8708b346f33cbb62b2dbc810f0b5ae8c7293acd18",
+      "seconds": 43,
+      "failed": false,
+      "expectedFailure": false,
+      "finalized": true
+    },
+    {
+      "label": "resolve open (bob)",
+      "fn": "resolve_question",
+      "hash": "0x51a3a3a9fcec10e53ebbf46428c8f5e5d63049031ec56f47ad34c2de1bd0e618",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x51a3a3a9fcec10e53ebbf46428c8f5e5d63049031ec56f47ad34c2de1bd0e618",
+      "seconds": 17,
+      "failed": false,
+      "expectedFailure": false,
+      "finalized": true
+    },
+    {
+      "label": "rejected: immediate re-resolve (carol)",
+      "fn": "resolve_question",
+      "hash": "0x0cd9212580cc5818725db883171544db958ac3f2bdb2a3ccecf121e033b78bb4",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x0cd9212580cc5818725db883171544db958ac3f2bdb2a3ccecf121e033b78bb4",
+      "seconds": 6,
+      "failed": false,
+      "expectedFailure": true,
+      "finalized": true
+    },
+    {
+      "label": "resolve injection (bob)",
+      "fn": "resolve_question",
+      "hash": "0x9b7e0e1d2a26887fdb2ebeea82280d021250d76b3c297f1162c9b2cfa78c706e",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x9b7e0e1d2a26887fdb2ebeea82280d021250d76b3c297f1162c9b2cfa78c706e",
+      "seconds": 16,
+      "failed": false,
+      "expectedFailure": false,
+      "finalized": true
+    }
+  ]
+}
