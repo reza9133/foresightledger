@@ -1,0 +1,3 @@
+# Contract test tooling (direct mode: the contract runs natively in Python, no simulator needed).
+genlayer-test==0.29.2
+pytest==9.1.1

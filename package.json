@@ -1,0 +1,23 @@
+{
+  "name": "foresightledger",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "pytest -q",
+    "mutation": "python scripts/mutation_check.py",
+    "deploy": "node e2e/deploy.mjs",
+    "test:e2e-model": "node --test e2e/model.test.mjs",
+    "e2e": "node e2e/live-e2e.mjs",
+    "e2e:quick": "node e2e/live-e2e.mjs --quick",
+    "e2e:publish": "bash scripts/publish-report.sh",
+    "test:all": "node --test e2e/model.test.mjs && pytest -q"
+  },
+  "dependencies": {
+    "genlayer-js": "1.2.0",
+    "viem": "2.56.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
